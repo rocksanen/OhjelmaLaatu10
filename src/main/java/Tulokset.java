@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * Represents the game results and tracks the progress of the game between players.
+ */
 public class Tulokset {
 
     private final ArrayList<Pelaaja> pelaajaLista;
@@ -8,6 +11,12 @@ public class Tulokset {
     private final int TARVITTAVA_VOITTOJEN_MÄÄRÄ = 3;
     private final KiviPaperiSaksetLogiikka logiikka;
 
+    /**
+     * Constructs a Tulokset object to manage game results between players.
+     *
+     * @param p1 The first player
+     * @param p2 The second player
+     */
     public Tulokset(Pelaaja p1, Pelaaja p2) {
 
         this.logiikka = new KiviPaperiSaksetLogiikka();
@@ -20,6 +29,9 @@ public class Tulokset {
         this.tasaPelienMäärä = 0;
     }
 
+    /**
+     * Prints the current score for each player.
+     */
     public void tulostaVoitot() {
 
         for (int i = 0; i < pelaajaLista.size(); i++) {
@@ -28,22 +40,39 @@ public class Tulokset {
         }
     }
 
+    /**
+     * Prints the number of games played.
+     */
     public void tulostaPelienMäärä() {
         System.out.println("Erä: " + pelienMäärä + " ======================================================");
     }
 
+    /**
+     * Increments the game count by one.
+     */
     public void setPelienMäärä() {
         pelienMäärä++;
     }
 
+    /**
+     * Increments the tie game count by one.
+     */
     public void setTasaPelienMäärä() {
         tasaPelienMäärä++;
     }
 
+    /**
+     * Prints the number of tie games played.
+     */
     public void tulostaTasaPelienMäärä() {
         System.out.println("Tasapelien lukumäärä: " + tasaPelienMäärä + "\n");
     }
 
+    /**
+     * Checks if the game has ended.
+     *
+     * @return True if the game has ended, otherwise false
+     */
     public Boolean päättyiköPeli() {
 
         for (Pelaaja pelaaja : pelaajaLista) {
@@ -54,6 +83,9 @@ public class Tulokset {
         return false;
     }
 
+    /**
+     * Determines the winner of the current round and updates scores.
+     */
     public void määritäVoittaja() {
         String p1Valinta = pelaajaLista.get(0).getValinta();
         String p2Valinta = pelaajaLista.get(1).getValinta();
@@ -70,6 +102,11 @@ public class Tulokset {
         }
     }
 
+    /**
+     * Prints the winner of the game.
+     *
+     * @return A string indicating the winner of the game
+     */
     public String tulostaVoittaja() {
 
         for (int i = 0; i < pelaajaLista.size(); i++) {

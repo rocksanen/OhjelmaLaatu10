@@ -1,9 +1,13 @@
 /**
- *
- * @author Ira Dook
+ * The main class for running the game.
  */
 public class Peli {
 
+    /**
+     * The main method to start the game.
+     *
+     * @param args Command line arguments (unused)
+     */
     public static void main(String[] args) {
         Pelaaja p1 = new Pelaaja();
         Pelaaja p2 = new Pelaaja();
@@ -15,6 +19,13 @@ public class Peli {
         System.out.println(tulokset.tulostaVoittaja());
     }
 
+    /**
+     * Method to play the game rounds.
+     *
+     * @param p1       Player 1
+     * @param p2       Player 2
+     * @param tulokset Game results and logic handler
+     */
     private static void pelaaPeli(Pelaaja p1, Pelaaja p2, Tulokset tulokset) {
         do {
             tulokset.tulostaPelienMäärä();
